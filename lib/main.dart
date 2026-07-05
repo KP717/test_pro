@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'features/home/view/home_screen.dart';
+
 void main(){
   runApp(MyApp());
 }
@@ -14,31 +16,19 @@ class MyApp extends StatelessWidget{
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: AppBarTheme(
+          iconTheme: IconThemeData(color: Colors.white),
           backgroundColor: Colors.purple[800],
           titleTextStyle: TextStyle(color: Colors.white, fontSize: 24,fontWeight: FontWeight.w600),
         ),
+        primaryColor: Colors.purple[800],
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        textTheme: TextTheme(
+          displaySmall: TextStyle(fontWeight: FontWeight.w600,color: Colors.black,fontSize: 14),
+          displayMedium: TextStyle(fontWeight: FontWeight.w600,color: Colors.black,fontSize: 16),
+          displayLarge: TextStyle(fontWeight: FontWeight.w600,color: Colors.black,fontSize: 18),
+        )
       ),
-      home: HomePage(),
-    );
-  }
-}
-
-
-class HomePage extends StatefulWidget{
-
-  const HomePage({super.key});
-
-  @override
-  State<StatefulWidget> createState() => _HomePage();
-}
-
-class _HomePage extends State<HomePage>{
-
-  @override
-  Widget build(BuildContext context){
-    return Scaffold(
-      appBar: AppBar(title: Text("Auth Pro"),actionsPadding: EdgeInsets.only(right: 16),actions: [Icon(Icons.more_vert,color: Colors.white,)],),
+      home: HomeScreen(),
     );
   }
 }
