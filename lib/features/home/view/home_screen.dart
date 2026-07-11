@@ -20,7 +20,6 @@ class _HomePage extends State<HomeScreen>{
 
   @override
   void initState() {
-
     _viewModel = HomeScreenViewModel()..init(context: context);
     super.initState();
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_pro/routes/app_route.dart';
 
 import 'features/home/view/home_screen.dart';
 
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: AppRoute.router,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: AppBarTheme(
@@ -28,7 +30,6 @@ class MyApp extends StatelessWidget{
           displayLarge: TextStyle(fontWeight: FontWeight.w600,color: Colors.black,fontSize: 18),
         )
       ),
-      home: HomeScreen(),
     );
   }
 }

@@ -2,8 +2,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../profile/view/user_profile.dart';
+import 'package:go_router/go_router.dart';
+import 'package:test_pro/routes/route_constant.dart';
 
 class HomeScreenViewModel {
 
@@ -16,7 +16,7 @@ class HomeScreenViewModel {
 
 
   void goToUserProfile(){
-    Navigator.push(context, MaterialPageRoute(builder: (context)=> UserProfile()));
+    context.push(RouteConstant.userProfileScreen,extra: {"title": "Kumar P"});
   }
 
 }
