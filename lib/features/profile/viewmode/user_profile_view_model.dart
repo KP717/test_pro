@@ -1,6 +1,8 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:test_pro/core/service/user_profile_service.dart';
+import 'package:test_pro/dependency_injection/injection_container.dart';
 
 class UserProfileViewModel {
 
@@ -19,6 +21,8 @@ class UserProfileViewModel {
   }
 
   void pop(){
+
+    getIt<UserProfileService>().saveUserDetails();
     Navigator.pop(context);
   }
 

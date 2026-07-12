@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:test_pro/dependency_injection/injection_container.dart';
 import 'package:test_pro/routes/app_route.dart';
 
-import 'features/home/view/home_screen.dart';
-
 void main(){
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  configureDependencies();
+
   runApp(MyApp());
 }
 
