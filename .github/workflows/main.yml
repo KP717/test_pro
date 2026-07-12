@@ -33,9 +33,15 @@ jobs:
       - name: Generate a release build
         run: flutter build apk --release
 
-      - name: Upload APK Artifact
-        uses: actions/upload-artifact@v4
+#      - name: Upload APK Artifact
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: flutter_app_release_build
+#          path: build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Push to Releases
+        uses: ncipollo/release-action@v1
         with:
-          name: flutter_app_release_build
-          path: build/app/outputs/flutter-apk/app-release.apk
+          tag: v1.0.${{ github.run_number }}
+          token: ${{ secrets.TOKEN }}
 
