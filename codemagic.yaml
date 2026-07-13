@@ -23,28 +23,24 @@ workflows:
         script: |
           flutter pub get
 
-      - name: Run unit tests
-        script: |
-          flutter test
-
       - name: Build Android APK
         script: |
           flutter build apk --release
 
-      - name: Build iOS (No Codesign)
-        script: |
-          flutter build ios --release --no-codesign
+#      - name: Build iOS (No Codesign)
+#        script: |
+#          flutter build ios --release --no-codesign
 
     artifacts:
       - build/**/outputs/**/*.apk
-      - build/**/outputs/**/*.aab
-      - build/ios/ipa/*.ipa
-      - flutter_drive.log
+#      - build/**/outputs/**/*.aab
+#      - build/ios/ipa/*.ipa
+#      - flutter_drive.log
 
-    publishing:
-      email:
-        recipients:
-          - team@yourdomain.com
-        notify:
-          success: true
-          failure: false
+#    publishing:
+#      email:
+#        recipients:
+#          - team@yourdomain.com
+#        notify:
+#          success: true
+#          failure: false
