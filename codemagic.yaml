@@ -1,6 +1,50 @@
-
 workflows:
-  hello-world:
-    name: Hello world workflow
+  flutter-workflow:
+    name: Flutter CI/CD Workflow
+    max_build_duration: 120
+    instance_type: mac_mini_m1
+
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+          include: true
+          source: true
+      cancel_previous_builds: true
+
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+
     scripts:
-      - echo "Hello World!"
+      - name: Get Flutter packages
+        script: |
+          flutter pub get
+
+      - name: Run unit tests
+        script: |
+          flutter test
+
+      - name: Build Android APK
+        script: |
+          flutter build apk --release
+
+      - name: Build iOS (No Codesign)
+        script: |
+          flutter build ios --release --no-codesign
+
+    artifacts:
+      - build/**/outputs/**/*.apk
+      - build/**/outputs/**/*.aab
+      - build/ios/ipa/*.ipa
+      - flutter_drive.log
+
+    publishing:
+      email:
+        recipients:
+          - team@yourdomain.com
+        notify:
+          success: true
+          failure: false
