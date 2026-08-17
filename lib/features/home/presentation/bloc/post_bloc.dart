@@ -1,7 +1,3 @@
-
-
-
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_pro/core/usecases/usercases.dart';
 import 'package:test_pro/dependency_injection/injection_container.dart';
@@ -11,7 +7,7 @@ import 'package:test_pro/features/home/presentation/bloc/post_event.dart';
 import 'package:test_pro/features/home/presentation/bloc/post_state.dart';
 
 class PostBloc extends Bloc<PostEvent, PostState> {
-  
+
   PostBloc() : super(PostInitialState()){
     on<FetchPostEvent>((event, emit)async{
       emit(PostLoadingState(posts: state.posts));

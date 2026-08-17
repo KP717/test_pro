@@ -26,6 +26,11 @@ class _HomePage extends State<HomeScreen>{
   @override
   Widget build(BuildContext context){
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: (){
+          context.read<PostBloc>().add(FetchPostEvent());
+      },
+      backgroundColor: Colors.red.shade700,
+      child: Icon(Icons.refresh,color: Colors.white),),
       appBar: AppBar(title: Text("Posts Screen"),actionsPadding: EdgeInsets.only(right: 16),actions: [Icon(Icons.more_vert,color: Colors.white,)],),
         body: BlocBuilder<PostBloc, PostState>(builder: (context,state){
 
@@ -46,7 +51,12 @@ class _HomePage extends State<HomeScreen>{
           return Center(child: Text(state.message));
         }
 
-        return SizedBox.shrink();
+        return Center(child: ElevatedButton(
+          onPressed: (){
+            context.read<PostBloc>().add(FetchPostEvent());
+          },
+          style: ElevatedButton.styleFrom(backgroundColor: Colors.red.shade700), 
+          child: Icon(Icons.refresh,color: Colors.white,),));
       }),
     );
   }
