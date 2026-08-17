@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_pro/dependency_injection/injection_container.dart';
+import 'package:test_pro/features/home/presentation/bloc/post_bloc.dart';
 import 'package:test_pro/routes/app_route.dart';
 
 void main(){
@@ -18,7 +20,10 @@ class MyApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
-    return MaterialApp.router(
+    return MultiBlocProvider(providers: [
+      BlocProvider(create: (context)=> PostBloc())
+    ],
+     child: MaterialApp.router(
       routerConfig: AppRoute.router,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -35,6 +40,6 @@ class MyApp extends StatelessWidget{
           displayLarge: TextStyle(fontWeight: FontWeight.w600,color: Colors.black,fontSize: 18),
         )
       ),
-    );
+    ));
   }
 }

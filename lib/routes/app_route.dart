@@ -1,7 +1,7 @@
 
 
 import 'package:go_router/go_router.dart';
-import 'package:test_pro/features/home/view/home_screen.dart';
+import 'package:test_pro/features/home/presentation/screens/home_screen.dart';
 import 'package:test_pro/features/profile/view/user_profile_screen.dart';
 import 'package:test_pro/routes/route_constant.dart';
 

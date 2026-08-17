@@ -38,6 +38,10 @@ dependencies:
   go_router: ^17.3.0
   get_it: ^9.2.1
   injectable:
+  equatable: ^2.1.0
+  dio: ^5.11.0
+  dartz: ^0.10.1
+  flutter_bloc: ^9.1.1
 
 dev_dependencies:
   flutter_test:
