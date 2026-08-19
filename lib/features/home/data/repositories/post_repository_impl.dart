@@ -23,8 +23,4 @@ class PostRepositoryImpl implements PostRepository{
   Future<Either<Exception, List<PostEntity>>> getPosts() {
    return dataSource.getPosts();
   }
-
-
-
-
 }
