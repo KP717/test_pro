@@ -1,10 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_pro/core/usecases/usercases.dart';
 import 'package:test_pro/dependency_injection/injection_container.dart';
-import 'package:test_pro/features/home/domain/usercases/create_post_usecase.dart';
-import 'package:test_pro/features/home/domain/usercases/get_post_usecase.dart';
-import 'package:test_pro/features/home/presentation/bloc/post_event.dart';
-import 'package:test_pro/features/home/presentation/bloc/post_state.dart';
+import 'package:test_pro/features/posts/domain/usercases/create_post_usecase.dart';
+import 'package:test_pro/features/posts/domain/usercases/get_post_usecase.dart';
+import 'package:test_pro/features/posts/presentation/bloc/post_event.dart';
+import 'package:test_pro/features/posts/presentation/bloc/post_state.dart';
 
 class PostBloc extends Bloc<PostEvent, PostState> {
 

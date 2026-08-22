@@ -1,5 +1,5 @@
 
-import 'package:test_pro/features/home/domain/entity/post_entity.dart';
+import 'package:test_pro/features/posts/domain/entity/post_entity.dart';
 
 class PostModel extends PostEntity {
 

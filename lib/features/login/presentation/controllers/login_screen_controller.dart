@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:test_pro/core/constants/preference_constant.dart';
 import 'package:test_pro/core/routes/route_constant.dart';
+import 'package:test_pro/core/storage/preference_manager.dart';
 import 'package:test_pro/dependency_injection/injection_container.dart';
 import 'package:test_pro/features/login/domain/usercases/login_usecase.dart';
 
@@ -45,16 +47,17 @@ class LoginScreenController {
       return;
     }
 
-    await _progressDialog();
+    _progressDialog();
 
     var result = await getIt<LoginUsecase>().call({"username": username, "password" : password});
-
+    print("login res: $result");
     result.fold((exception){
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Something went wrong!")));
     }, (response){
       Navigator.pop(context);
       if(response.isSuccess){
-        context.go(RouteConstant.homeScreen);
+        PreferenceManager.setString(key: PreferenceConstant.isLoggedIn, value: "Yes");
+        context.go(RouteConstant.postsScreen);
       }else{
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Login failed, please try again!")));
       }

@@ -15,14 +15,19 @@ import 'package:injectable/injectable.dart' as _i526;
 import '../core/networking/api_client.dart' as _i62;
 import '../core/service/home_service.dart' as _i827;
 import '../core/service/user_profile_service.dart' as _i801;
-import '../features/home/data/datasource/post_remote_data_source.dart' as _i44;
-import '../features/home/data/repositories/post_repository_impl.dart' as _i181;
-import '../features/home/domain/usercases/create_post_usecase.dart' as _i428;
-import '../features/home/domain/usercases/get_post_usecase.dart' as _i538;
+import '../features/posts/data/datasource/post_remote_data_source.dart' as _i44;
+import '../features/posts/data/repositories/post_repository_impl.dart' as _i181;
+import '../features/posts/domain/usercases/create_post_usecase.dart' as _i428;
+import '../features/posts/domain/usercases/get_post_usecase.dart' as _i538;
 import '../features/login/data/datasource/login_datasource.dart' as _i959;
 import '../features/login/data/repositories/login_repository_impl.dart'
     as _i667;
 import '../features/login/domain/usercases/login_usecase.dart' as _i505;
+import '../features/splash/data/datasource/splash_datasource.dart' as _i131;
+import '../features/splash/data/repositories/splash_repository_impl.dart'
+    as _i1010;
+import '../features/splash/domain/usecases/validate_login_usecase.dart'
+    as _i724;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -51,6 +56,15 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i667.LoginRepositoryImpl(),
     );
     gh.lazySingleton<_i505.LoginUsecase>(() => _i505.LoginUsecase());
+    gh.lazySingleton<_i131.SplashDataSourceImpl>(
+      () => _i131.SplashDataSourceImpl(),
+    );
+    gh.lazySingleton<_i1010.SplashRepositoryImpl>(
+      () => _i1010.SplashRepositoryImpl(),
+    );
+    gh.lazySingleton<_i724.ValidateLoginUsecase>(
+      () => _i724.ValidateLoginUsecase(),
+    );
     return this;
   }
 }

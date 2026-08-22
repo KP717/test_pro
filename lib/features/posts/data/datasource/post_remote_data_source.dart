@@ -7,7 +7,7 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:test_pro/core/networking/api_client.dart';
 import 'package:test_pro/dependency_injection/injection_container.dart';
-import 'package:test_pro/features/home/data/models/post_model.dart';
+import 'package:test_pro/features/posts/data/models/post_model.dart';
 
 abstract class PostRemoteDataSource {
   
