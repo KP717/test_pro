@@ -24,7 +24,11 @@ class PostRemoteDataSourceImpl implements PostRemoteDataSource{
   Future<Either<Exception, PostModel>> createPost(PostModel post) async{
     try{
 
-      final response = await apiClient.sendRequest.post('/posts', data: jsonEncode(post.toJson()));
+      final response = await apiClient.sendRequest.post('/posts', data: jsonEncode({
+        'title': post.title,
+        'body': post.body,
+        'userId': post.userId
+      }));
 
       if(response.statusCode == 201){
         final data = response.data;

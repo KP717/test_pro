@@ -15,7 +15,8 @@ class CreatePostUseCase implements UseCase<PostEntity, PostEntity>{
 
   @override
   Future<Either<Exception, PostEntity>> call(PostEntity post)async{
-    return postRepository.createPost(post);
+    var result = await postRepository.createPost(post);
+    return result.fold((error) => Left(error), (post) => Right(PostEntity(id: post.id, userId: post.userId, title: post.title, body: post.body)));
   }
   
 }

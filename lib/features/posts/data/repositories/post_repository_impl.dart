@@ -15,7 +15,7 @@ class PostRepositoryImpl implements PostRepository{
   PostRemoteDataSourceImpl dataSource = getIt<PostRemoteDataSourceImpl>();
 
   @override
-  Future<Either<Exception, PostEntity>> createPost(PostEntity post) {
+  Future<Either<Exception, PostModel>> createPost(PostEntity post) {
     return dataSource.createPost(PostModel.fromEntity(post));
   }
 

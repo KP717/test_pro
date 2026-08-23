@@ -1,10 +1,14 @@
 
 
+import 'package:equatable/equatable.dart';
 import 'package:test_pro/features/posts/domain/entity/post_entity.dart';
 
-abstract class PostState {
+abstract class PostState extends Equatable{
   final List<PostEntity> posts;
   PostState({required this.posts});
+
+  @override
+  List<Object?> get props => [posts];
 }
 
 class PostInitialState extends PostState {
@@ -16,7 +20,9 @@ class PostLoadingState extends PostState {
 }
 
 class PostLoadedState extends PostState {
-  PostLoadedState({required super.posts});
+  bool canPop;
+  String? error;
+  PostLoadedState({this.canPop = false, this.error, required super.posts});
 }
 
 class PostErrorState extends PostState{

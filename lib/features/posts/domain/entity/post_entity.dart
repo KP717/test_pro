@@ -1,5 +1,6 @@
 
 import 'package:equatable/equatable.dart';
+import 'package:test_pro/features/posts/data/models/post_model.dart';
 
 class PostEntity extends Equatable{
 
@@ -14,7 +15,11 @@ class PostEntity extends Equatable{
     required this.userId,
     required this.title,
     required this.body
-  }); 
+  });
+
+  PostEntity fromModel(PostModel postModel){
+    return PostEntity(id: postModel.id, userId: postModel.userId, title: postModel.title, body: postModel.body);
+  }
 
   @override
   List<Object?> get props => [id, userId, title, body];

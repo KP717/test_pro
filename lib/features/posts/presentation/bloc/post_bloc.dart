@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_pro/core/usecases/usercases.dart';
 import 'package:test_pro/dependency_injection/injection_container.dart';
@@ -25,13 +26,13 @@ class PostBloc extends Bloc<PostEvent, PostState> {
       emit(PostLoadingState(posts: state.posts));
 
       final result = await getIt<CreatePostUseCase>().call(event.postEntity);
-      
+
       result.fold(  
-        (left){
-          emit(PostErrorState(posts: state.posts, message: left.toString()));
+        (error){
+          emit(PostLoadedState(error: error.toString(), posts: [...state.posts]));
         },
-        (right){
-          emit(PostLoadedState(posts: [right, ...state.posts]));
+        (postEntity){
+          emit(PostLoadedState(canPop: true,posts: [postEntity, ...state.posts]));
         }
       );
     });
