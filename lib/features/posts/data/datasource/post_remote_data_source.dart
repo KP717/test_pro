@@ -7,12 +7,15 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:test_pro/core/networking/api_client.dart';
 import 'package:test_pro/dependency_injection/injection_container.dart';
+import 'package:test_pro/features/posts/data/models/post_comment_model.dart';
 import 'package:test_pro/features/posts/data/models/post_model.dart';
 
 abstract class PostRemoteDataSource {
   
   Future<Either<Exception, List<PostModel>>> getPosts();
   Future<Either<Exception, PostModel>> createPost(PostModel post);
+  Future<Either<Exception, List<PostCommentModel>>> getPostComment(int postId);
+
 }
 
 @lazySingleton
@@ -67,6 +70,28 @@ class PostRemoteDataSourceImpl implements PostRemoteDataSource{
    } catch(ex){
       return Left(Exception(ex.toString()));
    }
+  }
+
+  @override
+  Future<Either<Exception, List<PostCommentModel>>> getPostComment(int postId) async{
+    try{
+      final response  = await apiClient.sendRequest.get('/posts/$postId/comments');
+
+      if(response.statusCode == 200){
+        final List<dynamic> data = response.data;
+        List<PostCommentModel> commentModelList = data.map((element)=> PostCommentModel.fromJson(element)).toList();
+        return Right(commentModelList);
+
+      }else {
+        return Left(Exception("Failed to Fetch the comments"));
+      }
+
+
+    }on DioException catch(dioException){
+      return Left(Exception(dioException.message));
+    }catch(e){
+      return Left(Exception(e.toString()));
+    }
   }
 
   

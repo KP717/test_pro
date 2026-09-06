@@ -71,6 +71,11 @@ class _PostsScreenPage extends State<PostsScreen>{
               },
               menuChildren: [
                 MenuItemButton(
+                  leadingIcon:Icon( Icons.person, color: Colors.black,size: 16,),
+                  onPressed: _controller.onPeriodicStreamOptionClick,
+                  child: Text("Periodic Streams", style: TextStyle(color: Colors.black, fontSize: 14),),
+                ),
+                MenuItemButton(
                   leadingIcon:Icon( Icons.comment, color: Colors.black,size: 16,),
                   child: Text("Comments", style: TextStyle(color: Colors.black, fontSize: 14),),
                   onPressed: (){
@@ -78,7 +83,9 @@ class _PostsScreenPage extends State<PostsScreen>{
                   },
                 ),
                 MenuItemButton(
-                  leadingIcon:Icon( Icons.person, color: Colors.black,size: 16,),
+                  onPressed: (){
+
+                  }, leadingIcon:Icon( Icons.person, color: Colors.black,size: 16,),
                   child: Text("Profile", style: TextStyle(color: Colors.black, fontSize: 14),),
                 ),
               ])
@@ -103,7 +110,17 @@ class _PostsScreenPage extends State<PostsScreen>{
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(post.title, style: TextStyle(fontSize: 16,fontWeight: FontWeight.w800, color: Colors.black.withOpacity(.7))),
-                    Text(post.body, style: TextStyle(fontSize: 12, color: Colors.black.withOpacity(.6)),)
+                    Text(post.body, style: TextStyle(fontSize: 12, color: Colors.black.withOpacity(.6)),),
+                    Row(mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                      SizedBox(height: 20,
+                          child: TextButton(
+                              onPressed: ()=> _controller.onCommentClick(postId: post.id),
+                              style: TextButton.styleFrom(padding: EdgeInsets.all(0)),
+                              child: Text("View Comment",style: TextStyle(color: Colors.blue.shade900,fontSize: 12),)
+                          )
+                      ),
+                    ],)
                   ],
                 ),);
             },
