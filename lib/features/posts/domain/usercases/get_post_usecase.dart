@@ -1,6 +1,7 @@
 
 
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:test_pro/core/usecases/usercases.dart';
 import 'package:test_pro/dependency_injection/injection_container.dart';
@@ -15,8 +16,8 @@ class GetPostUseCase implements UseCase<List<PostEntity>, NoParams>{
   final PostRepository postRepository = getIt<PostRepositoryImpl>();
 
   @override
-  Future<Either<Exception, List<PostEntity>>> call(NoParams params) {
-   return postRepository.getPosts();
+  Future<Either<Exception, List<PostEntity>>> call(NoParams params, {CancelToken? cancelToken}) {
+   return postRepository.getPosts(cancelToken: cancelToken);
   }
 
 

@@ -18,6 +18,8 @@ class _SplashScreenState extends State<SplashScreen>{
 
   late SplashScreenController _controller;
 
+  
+
   @override
   void initState() {
     _controller = SplashScreenController()..init(context: context);

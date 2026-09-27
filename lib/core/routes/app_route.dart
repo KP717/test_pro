@@ -2,6 +2,11 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:test_pro/features/animation/presentation/screens/animation_screen.dart';
+import 'package:test_pro/features/animation/presentation/screens/hero_animation_details.dart';
+import 'package:test_pro/features/animation/presentation/screens/transition_animations_screen.dart';
+import 'package:test_pro/features/animation/presentation/screens/tween_animation_screen.dart';
+import 'package:test_pro/features/chat/presentation/screens/chat_screen.dart';
 import 'package:test_pro/features/comments/presentation/bloc/comment_bloc.dart';
 import 'package:test_pro/features/comments/presentation/screen/comment_screen.dart';
 import 'package:test_pro/features/periodic_stream/presentation/bloc/periodic_stream_bloc.dart';
@@ -18,6 +23,9 @@ class AppRoute {
 
   static final router = GoRouter(
     initialLocation: RouteConstant.splashScreen,
+      redirect:(context, state){
+        
+      },
       routes: [
         GoRoute(path: RouteConstant.loginScreen, builder: (context, state)=> LoginScreen()),
         GoRoute(path: RouteConstant.splashScreen, builder: (context, state)=> SplashScreen()),
@@ -29,7 +37,6 @@ class AppRoute {
           if(state.extra == null){
             return CreatePostScreen();
           }
-
           return BlocProvider.value(value: state.extra as PostBloc, child: CreatePostScreen(),);
         }),
 
@@ -39,6 +46,13 @@ class AppRoute {
         GoRoute(path: RouteConstant.userProfileScreen, builder: (context, state){
           return UserProfileScreen(arguments: _getExtras(state.extra));
         }),
+
+        GoRoute(path: RouteConstant.chatScreen, builder: (context, state)=> ChatScreen()),
+        GoRoute(path: RouteConstant.animationScreen, builder: (context, state)=> AnimationScreen()),
+        GoRoute(path: RouteConstant.heroAnimationScreen, builder: (context, state)=> HeroAnimationDetailsScreen()),
+        GoRoute(path: RouteConstant.tweenAnmationScreen, builder: (context, state)=> TweenAnimationScreen()),
+        GoRoute(path: RouteConstant.transitionAnimationScreen, builder: (context, state)=> TransitionAnimationsScreen()),
+
     ]
   );
 

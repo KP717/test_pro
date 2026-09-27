@@ -10,6 +10,8 @@ abstract class PostEvent {}
 
 class FetchPostEvent extends PostEvent {}
 
+class CancleFetchPostEvent extends PostEvent {}
+
 class CreatePostEvent extends PostEvent{
   final PostEntity postEntity;
   final BuildContext context;

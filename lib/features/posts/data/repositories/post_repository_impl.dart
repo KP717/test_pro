@@ -1,6 +1,7 @@
 
 
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:test_pro/dependency_injection/injection_container.dart';
 import 'package:test_pro/features/posts/data/datasource/post_remote_data_source.dart';
@@ -21,8 +22,8 @@ class PostRepositoryImpl implements PostRepository{
   }
 
   @override
-  Future<Either<Exception, List<PostEntity>>> getPosts() async{
-   return await dataSource.getPosts();
+  Future<Either<Exception, List<PostEntity>>> getPosts({CancelToken? cancelToken}) async{
+   return await dataSource.getPosts(cancelToken: cancelToken);
   }
 
   @override

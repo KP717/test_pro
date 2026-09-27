@@ -24,14 +24,14 @@ class PostRemoteDataSourceImpl implements PostRemoteDataSource{
   APIClient apiClient = getIt<APIClient>();
 
   @override
-  Future<Either<Exception, PostModel>> createPost(PostModel post) async{
+  Future<Either<Exception, PostModel>> createPost(PostModel post, {CancelToken? cancelToken}) async{
     try{
 
       final response = await apiClient.sendRequest.post('/posts', data: jsonEncode({
         'title': post.title,
         'body': post.body,
         'userId': post.userId
-      }));
+      }), cancelToken: cancelToken);
 
       if(response.statusCode == 201){
         final data = response.data;
@@ -50,11 +50,13 @@ class PostRemoteDataSourceImpl implements PostRemoteDataSource{
   }
 
   @override
-  Future<Either<Exception, List<PostModel>>> getPosts() async{
+  Future<Either<Exception, List<PostModel>>> getPosts({CancelToken? cancelToken}) async{
    
    try{
 
-      final response =await apiClient.sendRequest.get('/posts');
+      print("cancelToken is null: ${cancelToken == null}");
+
+      final response = await apiClient.sendRequest.get('/posts', cancelToken: cancelToken);
 
       if(response.statusCode == 200){
         

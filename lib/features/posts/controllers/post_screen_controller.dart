@@ -13,8 +13,8 @@ class PostScreenController {
   void init(BuildContext context){
 
     this.context = context;
-
     context.read<PostBloc>().add(FetchPostEvent());
+
   }
 
   void onCreatePostEvent(BuildContext context)async{
@@ -31,6 +31,18 @@ class PostScreenController {
 
   void onPeriodicStreamOptionClick(){
     context.push(RouteConstant.periodicStreamScreen);
+  }
+
+  void onChatOptionClick(){
+    context.push(RouteConstant.chatScreen);
+  }
+
+   void onAnimationOptionClick(){
+    context.push(RouteConstant.animationScreen);
+  }
+
+  void onCacelButtonClick(){
+    context.read<PostBloc>().add(CancleFetchPostEvent());
   }
 
 }

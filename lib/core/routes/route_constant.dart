@@ -10,4 +10,9 @@ class RouteConstant {
   static final String createPostScreen = "/createPostScreen";
   static final String commentScreen = "/commentScreen";
   static final String periodicStreamScreen = "/periodicStreamScreen";
+  static final String chatScreen = "/chatScreen";
+  static final String animationScreen = "/animationScreen";
+  static final String heroAnimationScreen = "/heroAnimationScreen";
+  static final String tweenAnmationScreen = "/tweenAnmationScreen";
+  static final String transitionAnimationScreen = "/transitionAnimationScreen";
 }

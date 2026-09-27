@@ -1,6 +1,7 @@
 
 
 
+import 'package:app_links/app_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -25,6 +26,13 @@ class _PostsScreenPage extends State<PostsScreen>{
 
   @override
   void initState() {
+
+    final AppLinks appLinks = AppLinks();
+
+    appLinks.uriLinkStream.listen((Uri uri){
+      print("deep link URI:  $uri");
+    });
+
     _controller = PostScreenController()..init(context);
     super.initState();
   }
@@ -36,6 +44,14 @@ class _PostsScreenPage extends State<PostsScreen>{
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.end,children: [
+        SizedBox(height: 50,
+          child: ElevatedButton(
+            onPressed: _controller.onCacelButtonClick,
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.red.shade900,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
+            child: Icon(Icons.cancel_outlined,color: Colors.white),
+          ),
+        ),
+        const SizedBox(height: 12,),
         SizedBox(
           height: 50,
           child: ElevatedButton(
@@ -54,6 +70,8 @@ class _PostsScreenPage extends State<PostsScreen>{
             child: Icon(Icons.add,color: Colors.white),
           ),
         ),
+  
+
       ],),
       appBar: AppBar(
         title: Text("Posts"),
@@ -83,9 +101,20 @@ class _PostsScreenPage extends State<PostsScreen>{
                   },
                 ),
                 MenuItemButton(
-                  onPressed: (){
+                  leadingIcon:Icon( Icons.person, color: Colors.black,size: 16,),
+                  onPressed: _controller.onChatOptionClick,
+                  child: Text("Chat", style: TextStyle(color: Colors.black, fontSize: 14),),
+                ),
 
-                  }, leadingIcon:Icon( Icons.person, color: Colors.black,size: 16,),
+                MenuItemButton(
+                  leadingIcon:Icon( Icons.person, color: Colors.black,size: 16,),
+                  onPressed: _controller.onAnimationOptionClick,
+                  child: Text("Animation", style: TextStyle(color: Colors.black, fontSize: 14),),
+                ),
+
+                MenuItemButton(
+                  onPressed: (){}, 
+                  leadingIcon:Icon( Icons.person, color: Colors.black,size: 16,),
                   child: Text("Profile", style: TextStyle(color: Colors.black, fontSize: 14),),
                 ),
               ])
@@ -94,7 +123,15 @@ class _PostsScreenPage extends State<PostsScreen>{
 
         if(state is PostLoadingState){
           return Center(child: CircularProgressIndicator());
-        }else if(state is PostLoadedState){
+        }else if(state is PostLoadedState || state is RequestCancelledState){
+
+          if(state is RequestCancelledState){
+            print("Request is cancelled");
+          }
+
+          if(state.posts.isEmpty){
+            return Center(child: Text("No Posts!", style: TextStyle(color: Colors.red, fontSize: 18, fontWeight: FontWeight.w700),),);
+          }
 
           return ListView.builder(
             itemCount: state.posts.length,
@@ -113,20 +150,19 @@ class _PostsScreenPage extends State<PostsScreen>{
                     Text(post.body, style: TextStyle(fontSize: 12, color: Colors.black.withOpacity(.6)),),
                     Row(mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                      SizedBox(height: 20,
-                          child: TextButton(
-                              onPressed: ()=> _controller.onCommentClick(postId: post.id),
-                              style: TextButton.styleFrom(padding: EdgeInsets.all(0)),
-                              child: Text("View Comment",style: TextStyle(color: Colors.blue.shade900,fontSize: 12),)
-                          )
-                      ),
+                        GestureDetector(
+                          onTap:()=> _controller.onCommentClick(postId: post.id),
+                          child: const SizedBox(
+                            height: 20, 
+                            child: Text("View Comment",style: TextStyle(color: Colors.blue,fontSize: 12),))
+                        ),
                     ],)
                   ],
                 ),);
             },
           );
         }else if(state is PostErrorState){
-          return Center(child: Text(state.message));
+          return Center(child: Padding(padding: const EdgeInsetsGeometry.symmetric(horizontal: 24), child: Text(state.message, textAlign: TextAlign.center,),));
         }
 
         return Center(child: ElevatedButton(
