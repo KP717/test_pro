@@ -89,32 +89,44 @@ class _PostsScreenPage extends State<PostsScreen>{
               },
               menuChildren: [
                 MenuItemButton(
-                  leadingIcon:Icon( Icons.person, color: Colors.black,size: 16,),
+                  leadingIcon:Icon( Icons.stream_outlined, color: Colors.black,size: 16,),
                   onPressed: _controller.onPeriodicStreamOptionClick,
                   child: Text("Periodic Streams", style: TextStyle(color: Colors.black, fontSize: 14),),
                 ),
                 MenuItemButton(
-                  leadingIcon:Icon( Icons.comment, color: Colors.black,size: 16,),
+                  leadingIcon:Icon( Icons.comment_bank_outlined, color: Colors.black,size: 16,),
                   child: Text("Comments", style: TextStyle(color: Colors.black, fontSize: 14),),
                   onPressed: (){
                     context.push(RouteConstant.commentScreen);
                   },
                 ),
                 MenuItemButton(
-                  leadingIcon:Icon( Icons.person, color: Colors.black,size: 16,),
+                  leadingIcon:Icon( Icons.chat_bubble_outline_outlined, color: Colors.black,size: 16,),
                   onPressed: _controller.onChatOptionClick,
                   child: Text("Chat", style: TextStyle(color: Colors.black, fontSize: 14),),
                 ),
 
                 MenuItemButton(
-                  leadingIcon:Icon( Icons.person, color: Colors.black,size: 16,),
+                  leadingIcon:Icon( Icons.animation, color: Colors.black,size: 16,),
                   onPressed: _controller.onAnimationOptionClick,
                   child: Text("Animation", style: TextStyle(color: Colors.black, fontSize: 14),),
                 ),
 
                 MenuItemButton(
+                  onPressed: _controller.onGraphQLClick, 
+                  leadingIcon:Icon( Icons.graphic_eq_outlined, color: Colors.black,size: 16,),
+                  child: Text("GraphQL", style: TextStyle(color: Colors.black, fontSize: 14),),
+                ),
+                
+                MenuItemButton(
+                  onPressed: _controller.onWidgetTestingClick, 
+                  leadingIcon:Icon( Icons.person_2_outlined, color: Colors.black,size: 16,),
+                  child: Text("Widget Testing", style: TextStyle(color: Colors.black, fontSize: 14),),
+                ),
+
+                MenuItemButton(
                   onPressed: (){}, 
-                  leadingIcon:Icon( Icons.person, color: Colors.black,size: 16,),
+                  leadingIcon:Icon( Icons.person_2_outlined, color: Colors.black,size: 16,),
                   child: Text("Profile", style: TextStyle(color: Colors.black, fontSize: 14),),
                 ),
               ])

@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:test_pro/core/graphql/graphql_manager.dart';
 import 'package:test_pro/dependency_injection/injection_container.dart';
 import 'package:test_pro/core/routes/app_route.dart';
 import 'package:test_pro/features/splash/presentation/bloc/splash_screen_bloc.dart';
 
-void main(){
+void main()async{
 
   WidgetsFlutterBinding.ensureInitialized();
 
   configureDependencies();
+
+  await initHiveForFlutter();
+  
+  GraphqlManager.init();
+
   runApp(MyApp());
+  
 }
 
 
@@ -23,7 +31,9 @@ class MyApp extends StatelessWidget{
     return MultiBlocProvider(providers: [
       BlocProvider(create: (context)=> SplashScreenBloc())
     ],
-     child: MaterialApp.router(
+     child: GraphQLProvider(
+      client: GraphqlManager.graphQLNotifier,
+      child: MaterialApp.router(
       routerConfig: AppRoute.router,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -40,6 +50,6 @@ class MyApp extends StatelessWidget{
           displayLarge: TextStyle(fontWeight: FontWeight.w600,color: Colors.black,fontSize: 18),
         )
       ),
-    ));
+    )));
   }
 }

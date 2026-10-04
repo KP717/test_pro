@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test_pro/core/routes/route_constant.dart';
 import 'package:test_pro/features/posts/presentation/widgets/post_comment_widget.dart';
+import 'package:test_pro/testing/widget_test/widget_test_home_page.dart';
 import '../presentation/bloc/post_bloc.dart';
 import '../presentation/bloc/post_event.dart';
 
@@ -37,12 +38,20 @@ class PostScreenController {
     context.push(RouteConstant.chatScreen);
   }
 
-   void onAnimationOptionClick(){
+  void onAnimationOptionClick(){
     context.push(RouteConstant.animationScreen);
+  }
+
+  void onGraphQLClick(){
+    context.push(RouteConstant.graphQLScreen);
   }
 
   void onCacelButtonClick(){
     context.read<PostBloc>().add(CancleFetchPostEvent());
+  }
+
+  void onWidgetTestingClick(){
+    Navigator.push(context,MaterialPageRoute(builder: (context) => WigetTestHomePage()));
   }
 
 }

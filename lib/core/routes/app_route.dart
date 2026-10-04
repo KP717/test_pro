@@ -9,6 +9,7 @@ import 'package:test_pro/features/animation/presentation/screens/tween_animation
 import 'package:test_pro/features/chat/presentation/screens/chat_screen.dart';
 import 'package:test_pro/features/comments/presentation/bloc/comment_bloc.dart';
 import 'package:test_pro/features/comments/presentation/screen/comment_screen.dart';
+import 'package:test_pro/features/graphql/presentation/graphql_screen.dart';
 import 'package:test_pro/features/periodic_stream/presentation/bloc/periodic_stream_bloc.dart';
 import 'package:test_pro/features/periodic_stream/presentation/screens/periodic_stream_screen.dart';
 import 'package:test_pro/features/posts/presentation/bloc/post_bloc.dart';
@@ -23,9 +24,6 @@ class AppRoute {
 
   static final router = GoRouter(
     initialLocation: RouteConstant.splashScreen,
-      redirect:(context, state){
-        
-      },
       routes: [
         GoRoute(path: RouteConstant.loginScreen, builder: (context, state)=> LoginScreen()),
         GoRoute(path: RouteConstant.splashScreen, builder: (context, state)=> SplashScreen()),
@@ -52,6 +50,7 @@ class AppRoute {
         GoRoute(path: RouteConstant.heroAnimationScreen, builder: (context, state)=> HeroAnimationDetailsScreen()),
         GoRoute(path: RouteConstant.tweenAnmationScreen, builder: (context, state)=> TweenAnimationScreen()),
         GoRoute(path: RouteConstant.transitionAnimationScreen, builder: (context, state)=> TransitionAnimationsScreen()),
+        GoRoute(path: RouteConstant.graphQLScreen, builder: (context, state)=> GraphQLScreen()),
 
     ]
   );

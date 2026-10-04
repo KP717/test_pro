@@ -1,34 +1,35 @@
-
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:test_pro/testing/user_details.dart';
+import 'package:test_pro/testing/widget_test/widget_test_home_page.dart';
 
 void main(){
 
-  late UserDetails uDetails;
 
-  setUp((){
-    uDetails = UserDetails();
+  testWidgets("testing widgets in homepage", (tester)async{
+
+    await tester.pumpWidget(MaterialApp(home: const WigetTestHomePage(),));
+
+    final ctrl =  find.text('0');
+
+    expect(ctrl, findsOneWidget);
+
+
+    final elevatedButton = find.byKey(Key("increase_button"));
+    expect(elevatedButton, findsOneWidget);
+
+    expect(elevatedButton, findsOneWidget);
+
+    await tester.tap(elevatedButton);
+
+    await tester.pump();
+
+    final textWidget = find.text('1');
+
+    expect(textWidget, findsOneWidget);
+
+    final decreaseButton = find.byKey(Key("decrease_button"));
+    expect(decreaseButton, findsOneWidget);
+
+
   });
-
-
-
-  group("User Details testing - ",(){
-
-    test("Given a user details instance, default name should be Kumar",(){
-      expect(uDetails.name, "Kumar");
-    });
-
-
-    test("Given a user details instance, updating name, it should be Vishal",(){
-
-      uDetails.setName("Vishal");
-      expect(uDetails.name, "Vishal");
-    });
-  });
-
-
-  tearDown((){
-    uDetails.eraseName();
-  });
-
 }

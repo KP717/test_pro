@@ -15,4 +15,5 @@ class RouteConstant {
   static final String heroAnimationScreen = "/heroAnimationScreen";
   static final String tweenAnmationScreen = "/tweenAnmationScreen";
   static final String transitionAnimationScreen = "/transitionAnimationScreen";
+  static final String graphQLScreen = "/graphQLScreen";
 }
