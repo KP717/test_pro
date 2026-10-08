@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget{
           titleTextStyle: TextStyle(color: Colors.white, fontSize: 24,fontWeight: FontWeight.w600),
         ),
         primaryColor: Colors.purple[800],
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         textTheme: TextTheme(
           displaySmall: TextStyle(fontWeight: FontWeight.w600,color: Colors.black,fontSize: 14),
           displayMedium: TextStyle(fontWeight: FontWeight.w600,color: Colors.black,fontSize: 16),

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_pro/features/posts/controllers/create_post_controller.dart';
 import 'package:test_pro/features/posts/controllers/post_screen_controller.dart';
-import 'package:test_pro/features/posts/presentation/bloc/post_bloc.dart';
-import 'package:test_pro/features/posts/presentation/bloc/post_state.dart';
+import 'package:test_pro/features/posts/presentation/bloc/postBloc/post_bloc.dart';
+import 'package:test_pro/features/posts/presentation/bloc/postBloc/post_state.dart';
 
 class CreatePostScreen extends StatefulWidget {
   const CreatePostScreen({super.key});

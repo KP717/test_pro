@@ -6,8 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_pro/core/usecases/usercases.dart';
 import 'package:test_pro/features/posts/domain/entity/post_entity.dart';
 import 'package:test_pro/features/posts/domain/usercases/create_post_usecase.dart';
-import 'package:test_pro/features/posts/presentation/bloc/post_bloc.dart';
-import 'package:test_pro/features/posts/presentation/bloc/post_event.dart';
+import 'package:test_pro/features/posts/presentation/bloc/postBloc/post_bloc.dart';
+import 'package:test_pro/features/posts/presentation/bloc/postBloc/post_event.dart';
 
 import '../../../dependency_injection/injection_container.dart';
 

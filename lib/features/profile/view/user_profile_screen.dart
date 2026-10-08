@@ -27,7 +27,7 @@ class _UserProfileState extends State<UserProfileScreen>{
     return Scaffold(
       appBar: AppBar(title: Text(_viewModel.title),),
       body: SizedBox(width: double.infinity,
-        child: Column(mainAxisAlignment: .center,crossAxisAlignment: .center,
+        child: Column(mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomElevatedButton(title: "Back", onPress: _viewModel.pop)
           ],

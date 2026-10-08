@@ -47,6 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
               _textFormField(lableText: "Password", controller: _controller.passwordController),
               const SizedBox(height: 36),
               ElevatedButton(
+                key:const Key("login_button"),
                 onPressed: _controller.onLoginEvent,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Theme.of(context).primaryColor, 

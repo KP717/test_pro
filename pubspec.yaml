@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.11.0
+  sdk: '>=3.0.0 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -48,6 +48,8 @@ dependencies:
   app_links: ^7.0.0
   graphql_flutter: ^5.3.0
   hive_flutter: ^1.1.0
+  permission_handler: ^13.0.2
+  flutter_local_notifications: ^22.3.1
 
 dev_dependencies:
   flutter_test:

@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test_pro/core/routes/route_constant.dart';
-import 'package:test_pro/features/posts/presentation/bloc/post_bloc.dart';
-import 'package:test_pro/features/posts/presentation/bloc/post_event.dart';
-import 'package:test_pro/features/posts/presentation/bloc/post_state.dart';
+import 'package:test_pro/features/posts/presentation/bloc/postBloc/post_bloc.dart';
+import 'package:test_pro/features/posts/presentation/bloc/postBloc/post_event.dart';
+import 'package:test_pro/features/posts/presentation/bloc/postBloc/post_state.dart';
 
 import '../../controllers/post_screen_controller.dart';
 
@@ -33,7 +33,7 @@ class _PostsScreenPage extends State<PostsScreen>{
       print("deep link URI:  $uri");
     });
 
-    _controller = PostScreenController()..init(context);
+    _controller = PostScreenController(context)..init();
     super.initState();
   }
 
