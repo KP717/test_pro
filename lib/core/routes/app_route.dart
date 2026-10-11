@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:test_pro/core/service/application_service.dart';
 import 'package:test_pro/features/animation/presentation/screens/animation_screen.dart';
 import 'package:test_pro/features/animation/presentation/screens/hero_animation_details.dart';
 import 'package:test_pro/features/animation/presentation/screens/transition_animations_screen.dart';
@@ -11,6 +12,7 @@ import 'package:test_pro/features/chat/presentation/screens/chat_screen.dart';
 import 'package:test_pro/features/comments/presentation/bloc/comment_bloc.dart';
 import 'package:test_pro/features/comments/presentation/screen/comment_screen.dart';
 import 'package:test_pro/features/graphql/presentation/graphql_screen.dart';
+import 'package:test_pro/features/login/presentation/screen/sign_up_screen.dart';
 import 'package:test_pro/features/periodic_stream/presentation/bloc/periodic_stream_bloc.dart';
 import 'package:test_pro/features/periodic_stream/presentation/screens/periodic_stream_screen.dart';
 import 'package:test_pro/features/posts/presentation/bloc/postBloc/post_bloc.dart';
@@ -26,9 +28,11 @@ import 'package:test_pro/testing/integration_test/integration_test_home.dart';
 class AppRoute {
 
   static final router = GoRouter(
-    initialLocation: RouteConstant.loginScreen,
+    navigatorKey: ApplicationService.navigatorGlobalKey,
+    initialLocation: RouteConstant.splashScreen,
       routes: [
-        GoRoute(path: RouteConstant.loginScreen, builder: (context, state)=> LoginScreen(key: const Key("login_page"))),
+        GoRoute(path: RouteConstant.loginScreen, builder: (context, state)=> LoginScreen(key: const Key("login_screen"))),
+        GoRoute(path: RouteConstant.signupScreen, builder: (context, state)=> SignUpScreen(key: const Key("signup_screen"))),
         GoRoute(path: RouteConstant.splashScreen, builder: (context, state)=> SplashScreen()),
         GoRoute(path: RouteConstant.integrationTestHome, builder: (context, state)=> IntegrationTestHome()),
         GoRoute(path: RouteConstant.postsScreen, builder: (context, state)=> MultiBlocProvider(providers: [

@@ -125,6 +125,18 @@ class _PostsScreenPage extends State<PostsScreen>{
                 ),
 
                 MenuItemButton(
+                  onPressed: _controller.displayNotification, 
+                  leadingIcon:Icon( Icons.person_2_outlined, color: Colors.black,size: 16,),
+                  child: Text("Notification", style: TextStyle(color: Colors.black, fontSize: 14),),
+                ),
+
+                MenuItemButton(
+                  onPressed: _controller.inAppMessageAction, 
+                  leadingIcon:Icon( Icons.person_2_outlined, color: Colors.black,size: 16,),
+                  child: Text("In-App-Message", style: TextStyle(color: Colors.black, fontSize: 14),),
+                ),
+
+                MenuItemButton(
                   onPressed: (){}, 
                   leadingIcon:Icon( Icons.person_2_outlined, color: Colors.black,size: 16,),
                   child: Text("Profile", style: TextStyle(color: Colors.black, fontSize: 14),),

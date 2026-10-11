@@ -5,6 +5,7 @@ class RouteConstant {
 
   static final String splashScreen = "/";
   static final String loginScreen = "/loginScreen";
+  static final String signupScreen = "/signupScreen";
   static final String postsScreen = "/postsScreen";
   static final String userProfileScreen = "/userProfileScreen";
   static final String createPostScreen = "/createPostScreen";

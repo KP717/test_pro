@@ -1,10 +1,12 @@
 
+import 'package:firebase_in_app_messaging/firebase_in_app_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:test_pro/core/notification/firebase_notification_service.dart';
+import 'package:test_pro/core/notification/notification_service.dart';
 import 'package:test_pro/core/routes/route_constant.dart';
-import 'package:test_pro/features/posts/presentation/bloc/posts_screen_permission_bloc.dart';
 import 'package:test_pro/features/posts/presentation/widgets/notification_permission_bottomsheet.dart';
 import 'package:test_pro/features/posts/presentation/widgets/post_comment_widget.dart';
 import 'package:test_pro/testing/widget_test/widget_test_home_page.dart';
@@ -59,6 +61,14 @@ class PostScreenController {
     Navigator.push(context,MaterialPageRoute(builder: (context) => WigetTestHomePage()));
   }
 
+  void displayNotification(){
+    NotificationService().showNotification(notificationId: 100, title: "Test Notification", body:"Hey, How are you", payload: "Kumar Pawar");
+  }
+
+  void inAppMessageAction()async{
+    // await FirebaseNotificationService.triggerEvent('explore_premium');
+    FirebaseInAppMessaging.instance.triggerEvent("explore_premium");
+  }
 
   Future<void> _validateAndCheckPermissions()async{
     
@@ -71,9 +81,12 @@ class PostScreenController {
 
 
   void _showNotificationPermissionBottomSheet({required PermissionStatus notificationStatus}){
-    showModalBottomSheet(context: context, builder: (context){
-      
-      return NotificationPermissionBottomsheet();
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      barrierColor: Colors.transparent,
+      builder: (context){
+        return NotificationPermissionBottomsheet(bottomsheetRoute: ModalRoute.of(context)!,);
     });
   }
 

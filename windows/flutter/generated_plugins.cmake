@@ -5,6 +5,9 @@
 list(APPEND FLUTTER_PLUGIN_LIST
   app_links
   connectivity_plus
+  firebase_auth
+  firebase_core
+  flutter_timezone
   permission_handler_windows
 )
 

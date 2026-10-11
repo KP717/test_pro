@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:test_pro/core/routes/route_constant.dart';
 import 'package:test_pro/features/login/presentation/controllers/login_screen_controller.dart';
 
 class LoginScreen extends StatefulWidget{
@@ -42,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
             children:[
               Icon(Icons.verified_user_sharp, size: 120, color: Theme.of(context).primaryColor),
               const SizedBox(height: 24),
-              _textFormField(lableText: "Username", controller: _controller.usernameController),
+              _textFormField(lableText: "Email", controller: _controller.usernameController),
               const SizedBox(height: 16),
               _textFormField(lableText: "Password", controller: _controller.passwordController),
               const SizedBox(height: 36),
@@ -58,12 +60,22 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Row(mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  TextButton(
-                    onPressed:(){},
-                    child: const Text("Forgot Password?",style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black54),)
-                  ),
+                  Column(crossAxisAlignment: CrossAxisAlignment.end,children: [
+                    TextButton(
+                      onPressed:(){},
+                      child: const Text("Forgot Password?",style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black54),)
+                    ),
+                    TextButton(
+                      onPressed:(){
+                        context.push(RouteConstant.signupScreen);
+                      },
+                      child: const Text("Sign Up",style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black54),)
+                    ),
+                  ],)
                 ],
-              )
+              ),
+
+              OutlinedButton(onPressed: _controller.onGoogleSignIn, child: Text("SignIn with Google", style: TextStyle(color:Colors.blue.shade900),)),
             ]
           ),
         )
