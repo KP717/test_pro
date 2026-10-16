@@ -69,9 +69,9 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i1010.SplashRepositoryImpl());
     gh.lazySingleton<_i724.ValidateLoginUsecase>(
         () => _i724.ValidateLoginUsecase());
-    gh.lazySingleton<_i543.AuthDatasource>(() => _i543.AuthDatasourceImpl());
-    gh.lazySingleton<_i959.LoginDatasource>(() => _i959.LoginDatasourceImpl());
-    gh.lazySingleton<_i648.LoginRepository>(() => _i667.LoginRepositoryImpl());
+    // gh.lazySingleton<_i543.AuthDatasource>(() => _i543.AuthDatasourceImpl());
+    // gh.lazySingleton<_i959.LoginDatasource>(() => _i959.LoginDatasourceImpl());
+    // gh.lazySingleton<_i648.LoginRepository>(() => _i667.LoginRepositoryImpl());
     return this;
   }
 }

@@ -1,9 +1,4 @@
-
-
-
-
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_in_app_messaging/firebase_in_app_messaging.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:test_pro/core/notification/notification_service.dart';
@@ -47,7 +42,7 @@ void _printNotificationData({required String desc, required RemoteMessage remote
 class FirebaseNotificationService {
 
   static final FirebaseMessaging firebaseMessagingInstance = FirebaseMessaging.instance;
-  static final FirebaseInAppMessaging inAppMessagingFirebaseInstance = FirebaseInAppMessaging.instance;
+  // static final FirebaseInAppMessaging inAppMessagingFirebaseInstance = FirebaseInAppMessaging.instance;
 
   static Future<void> init()async{
     // await inAppMessagingFirebaseInstance.setMessagesSuppressed(false);
@@ -68,11 +63,4 @@ class FirebaseNotificationService {
     firebaseMessagingInstance.subscribeToTopic("daily_reminder");
     
   }
-
-
-  static Future<void> triggerEvent(String eventName) async {
-    await inAppMessagingFirebaseInstance.triggerEvent(eventName);
-  }
-
-
 }

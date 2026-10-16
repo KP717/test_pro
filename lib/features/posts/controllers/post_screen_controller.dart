@@ -1,5 +1,5 @@
 
-import 'package:firebase_in_app_messaging/firebase_in_app_messaging.dart';
+// import 'package:firebase_in_app_messaging/firebase_in_app_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -67,7 +67,7 @@ class PostScreenController {
 
   void inAppMessageAction()async{
     // await FirebaseNotificationService.triggerEvent('explore_premium');
-    FirebaseInAppMessaging.instance.triggerEvent("explore_premium");
+    // FirebaseInAppMessaging.instance.triggerEvent("explore_premium");
   }
 
   Future<void> _validateAndCheckPermissions()async{

@@ -32,20 +32,20 @@ class _NotificationPermissionBottomsheetState extends State<NotificationPermissi
       height:MediaQuery.of(context).size.height * .5,
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
-      decoration: BoxDecoration(color: Colors.purple.shade800, borderRadius: BorderRadius.only(topLeft: Radius.circular(24), topRight: Radius.circular(24))),
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.only(topLeft: Radius.circular(24), topRight: Radius.circular(24))),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.notifications,color: Colors.white,size: 120,),
+          Icon(Icons.notifications,size: 120,),
           const SizedBox(height: 24,),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("Get Notified", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900, color: Colors.white),),
+              Text("Get Notified", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900, ),),
               Text(
                 "Enable push notification to get updated about all our new products.", 
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.white),
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, ),
               ),
             ],
           ),

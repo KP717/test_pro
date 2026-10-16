@@ -9,20 +9,19 @@ import 'package:test_pro/core/notification/notification_service.dart';
 import 'package:test_pro/dependency_injection/injection_container.dart';
 import 'package:test_pro/core/routes/app_route.dart';
 import 'package:test_pro/features/splash/presentation/bloc/splash_screen_bloc.dart';
-import 'package:test_pro/firebase_options.dart';
+
+import 'firebase_options.dart';
 
 
 void main()async{
 
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-
   configureDependencies();
 
   await initHiveForFlutter();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   await NotificationService().init();
 

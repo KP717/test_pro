@@ -5,9 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "test_pro",
+            "name": "test_pro (prod)",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "args": ["--flavor", "prod"]
+        },
+        {
+            "name": "test_pro (dev)",
+            "request": "launch",
+            "type": "dart",
+            "args": ["--flavor", "dev"]
         },
         {
             "name": "test_pro (profile mode)",

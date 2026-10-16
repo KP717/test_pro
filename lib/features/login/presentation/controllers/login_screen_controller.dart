@@ -1,5 +1,6 @@
 
 
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -71,6 +72,13 @@ class LoginScreenController {
   void onGoogleSignIn()async{
 
     try{
+      await FirebaseAnalytics.instance.logEvent(
+        name: 'test_button_click',
+        parameters: {
+          'screen_name': 'home',
+          'button_name': 'test_button',
+        },
+      );
 
       final result = await GoogleSigninUsecase().call(NoParams());
       
@@ -86,7 +94,8 @@ class LoginScreenController {
           context.go(RouteConstant.postsScreen);
         }
       );
-    } on FirebaseAuthException catch (authException){
+    } 
+    on FirebaseAuthException catch (authException){
       if (!context.mounted) return;
 
       ScaffoldMessenger.of(context).showSnackBar(
@@ -94,7 +103,8 @@ class LoginScreenController {
           content: Text(authException.message ?? 'Google sign-in failed'),
         ),
       );
-    }catch(e){
+    }
+    catch(e){
       if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
