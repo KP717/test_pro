@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -9,9 +10,8 @@ import 'package:test_pro/core/notification/notification_service.dart';
 import 'package:test_pro/dependency_injection/injection_container.dart';
 import 'package:test_pro/core/routes/app_route.dart';
 import 'package:test_pro/features/splash/presentation/bloc/splash_screen_bloc.dart';
-
-import 'firebase_options.dart';
-
+import 'package:test_pro/firebase_options_production.dart' as production;
+import 'package:test_pro/firebase_options_staging.dart' as staging;
 
 void main()async{
 
@@ -21,7 +21,11 @@ void main()async{
 
   await initHiveForFlutter();
 
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  String flavor = appFlavor ?? "production";
+
+  await Firebase.initializeApp(options: flavor == "production"
+      ? production.DefaultFirebaseOptions.currentPlatform
+      : staging.DefaultFirebaseOptions.currentPlatform);
 
   await NotificationService().init();
 

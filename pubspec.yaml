@@ -45,7 +45,7 @@ dependencies:
   shared_preferences: ^2.5.5
   pretty_dio_logger: ^1.4.0
   web_socket_channel: ^3.0.3
-  app_links: ^7.0.0
+#  app_links:
   graphql_flutter: ^5.3.0
   hive_flutter: ^1.1.0
   permission_handler: ^13.0.2

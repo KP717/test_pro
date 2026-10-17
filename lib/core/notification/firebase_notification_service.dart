@@ -1,14 +1,19 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:test_pro/core/notification/notification_service.dart';
-import 'package:test_pro/firebase_options.dart';
-
+import 'package:test_pro/firebase_options_production.dart' as production;
+import 'package:test_pro/firebase_options_staging.dart' as staging;
 
 @pragma('vm:entry-point')
 Future<void> _firebaseBackgroundNotificationHandler(RemoteMessage remoteMessage)async{
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
+  String flavor = appFlavor ?? "production";
+
+  await Firebase.initializeApp(options: flavor == "production"
+      ? production.DefaultFirebaseOptions.currentPlatform
+      : staging.DefaultFirebaseOptions.currentPlatform);
   NotificationService notificationService = NotificationService();
     // Initialize the plugin in the background isolate.
   await notificationService.init();
