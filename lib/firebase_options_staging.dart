@@ -24,10 +24,7 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for android - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return android;
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
@@ -61,5 +58,13 @@ class DefaultFirebaseOptions {
     androidClientId: '1032191866883-h7pvf87l3f3ouib7lttvnpdfu8k98h2u.apps.googleusercontent.com',
     iosClientId: '1032191866883-hbd4imksfeqhfc47opgsvcc9andp1f8o.apps.googleusercontent.com',
     iosBundleId: 'com.testPro.ios.staging',
+  );
+
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyCT442FQdiPdX8h-DAn6XNTsC-7I1qhaoE',
+    appId: '1:1032191866883:android:34bc0640bc64e7051a7636',
+    messagingSenderId: '1032191866883',
+    projectId: 'test-pro-b822b',
+    storageBucket: 'test-pro-b822b.firebasestorage.app',
   );
 }

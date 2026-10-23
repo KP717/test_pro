@@ -8,7 +8,14 @@ pluginManagement {
             flutterSdkPath
         }
 
-    includeBuild("$flutterSdkPath/packages/flutter_tools/gradle")
+//    includeBuild("$flutterSdkPath/packages/flutter_tools/gradle")
+    includeBuild(
+        file("$flutterSdkPath/packages/flutter_tools/gradle")
+            .toPath()
+            .toRealPath()
+            .toAbsolutePath()
+            .toString()
+    )
 
     repositories {
         google()
@@ -20,12 +27,7 @@ pluginManagement {
 plugins {
     id("dev.flutter.flutter-plugin-loader") version "1.0.0"
     id("com.android.application") version "8.12.3" apply false
-    // START: FlutterFire Configuration
     id("com.google.gms.google-services") version("4.4.4") apply false
-    // END: FlutterFire Configuration
-    // START: FlutterFire Configuration
-//    id("com.google.gms.google-services") version("4.4.4") apply false
-    // END: FlutterFire Configuration
     id("org.jetbrains.kotlin.android") version "2.3.20" apply false
 }
 
