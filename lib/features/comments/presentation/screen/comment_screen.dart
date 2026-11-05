@@ -28,7 +28,8 @@ class _CommentScreenState extends State<CommentScreen> {
       appBar: AppBar(title:Text("Comments")),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BlocBuilder<CommentBloc, CommentState>(builder: (context,state){
+        child: BlocBuilder<CommentBloc, CommentState>(
+            builder: (context,state){
           if(state is CommentErrorState){
             return Center(child: Text(state.message, textAlign: TextAlign.center,),);
           }else if(state is CommentLoadedState){

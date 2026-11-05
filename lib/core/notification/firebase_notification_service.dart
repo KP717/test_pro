@@ -14,6 +14,7 @@ Future<void> _firebaseBackgroundNotificationHandler(RemoteMessage remoteMessage)
   await Firebase.initializeApp(options: flavor == "production"
       ? production.DefaultFirebaseOptions.currentPlatform
       : staging.DefaultFirebaseOptions.currentPlatform);
+
   NotificationService notificationService = NotificationService();
     // Initialize the plugin in the background isolate.
   await notificationService.init();

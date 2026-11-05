@@ -37,6 +37,7 @@ class _PostsScreenPage extends State<PostsScreen>{
     super.initState();
   }
 
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -134,6 +135,12 @@ class _PostsScreenPage extends State<PostsScreen>{
                   onPressed: _controller.inAppMessageAction, 
                   leadingIcon:Icon( Icons.person_2_outlined, color: Colors.black,size: 16,),
                   child: Text("In-App-Message", style: TextStyle(color: Colors.black, fontSize: 14),),
+                ),
+
+                MenuItemButton(
+                  onPressed: _controller.onVideoStreamClick, 
+                  leadingIcon:Icon( Icons.video_call, color: Colors.black,size: 16,),
+                  child: Text("Video Stream", style: TextStyle(color: Colors.black, fontSize: 14),),
                 ),
 
                 MenuItemButton(

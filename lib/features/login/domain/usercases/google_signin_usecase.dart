@@ -10,7 +10,7 @@ class GoogleSigninUsecase extends UseCase<AppUserEntity, NoParams>{
 
   @override
   Future<Either<Exception, AppUserEntity>> call(NoParams params) async{
-    return getIt<LoginRepository>().googleSingin();
+    return getIt<LoginRepository>().googleSingIn();
   }
 
 }

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:test_pro/core/notification/firebase_notification_service.dart';
 import 'package:test_pro/core/notification/notification_service.dart';
 import 'package:test_pro/core/routes/route_constant.dart';
 import 'package:test_pro/features/posts/presentation/widgets/notification_permission_bottomsheet.dart';
@@ -68,6 +67,10 @@ class PostScreenController {
   void inAppMessageAction()async{
     // await FirebaseNotificationService.triggerEvent('explore_premium');
     // FirebaseInAppMessaging.instance.triggerEvent("explore_premium");
+  }
+
+  void onVideoStreamClick()async{
+    context.push(RouteConstant.videoStreamScreen);
   }
 
   Future<void> _validateAndCheckPermissions()async{

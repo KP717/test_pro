@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test_pro/core/constants/preference_constant.dart';
 import 'package:test_pro/core/routes/route_constant.dart';
+import 'package:test_pro/core/service/application_service.dart';
 import 'package:test_pro/core/storage/preference_manager.dart';
 import 'package:test_pro/core/usecases/usercases.dart';
 import 'package:test_pro/dependency_injection/injection_container.dart';
@@ -48,17 +49,19 @@ class LoginScreenController {
       return;
     }
 
-    _progressDialog();
+    Route? dialogRoute;
+
+    _progressDialog(onChange: (ctx){
+      dialogRoute = ModalRoute.of(ctx);
+    });
 
     var result = await getIt<LoginUsecase>().call({"username": username, "password" : password});
-    print("login res: $result");
 
-    Navigator.pop(context);
+    _removeDialog(dialogRoute);
 
     result.fold((exception){
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(exception.toString())));
     }, (userEntity){
-
       if((userEntity.email ?? "").isNotEmpty){
         PreferenceManager.setString(key: PreferenceConstant.isLoggedIn, value: "Yes");
         context.go(RouteConstant.postsScreen);
@@ -67,6 +70,14 @@ class LoginScreenController {
       }
     });
   
+  }
+
+  void _removeDialog(Route? dialogRoute){
+
+    if(dialogRoute == null) return;
+    try{
+      ApplicationService.navigatorGlobalKey?.currentState?.removeRoute(dialogRoute!);        
+    }catch(_){}
   }
 
   void onGoogleSignIn()async{
@@ -115,12 +126,14 @@ class LoginScreenController {
 
   }
 
-  Future<void> _progressDialog({String? message})async{
+  Future<void> _progressDialog({required Function(BuildContext context) onChange, String? message})async{
 
     await showDialog(context: context, 
       barrierColor: Colors.white.withAlpha(900),
       barrierDismissible: false,
       builder: (context){
+        onChange(context);
+
         return PopScope(canPop: false,child: Dialog(
           backgroundColor: Colors.transparent,
           child: Container(

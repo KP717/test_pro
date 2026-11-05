@@ -10,40 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="870c6bcd-7475-4fe1-bd18-ee683592a755" name="Changes" comment="streams and streamSubscriptions">
-      <change afterPath="$PROJECT_DIR$/android/gradle/local.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/core/storage/secure_storage_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deviceManager.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/markdown.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Production.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/deviceStreaming.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/android/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/test_pro_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/test_pro_android.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firebase.json" beforeDir="false" afterPath="$PROJECT_DIR$/firebase.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/firebase_options_production.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/firebase_options_production.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/firebase_options_staging.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/firebase_options_staging.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugins.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_pro.iml" beforeDir="false" afterPath="$PROJECT_DIR$/test_pro.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deviceManager.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/google-services.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/production/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/production/google-services.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/staging/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/staging/google-services.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration_test/user_login_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/integration_test/user_login_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/networking/api_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/networking/api_client.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/notification/firebase_notification_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/notification/firebase_notification_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dependency_injection/injection_container.config.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dependency_injection/injection_container.config.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/comments/presentation/screen/comment_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/comments/presentation/screen/comment_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/login/data/repositories/login_repository_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/login/data/repositories/login_repository_impl.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/login/domain/repositories/login_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/login/domain/repositories/login_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/login/domain/usercases/google_signin_usecase.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/login/domain/usercases/google_signin_usecase.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/login/presentation/controllers/signup_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/login/presentation/controllers/signup_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/posts/controllers/post_screen_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/posts/controllers/post_screen_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/posts/presentation/screens/posts_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/posts/presentation/screens/posts_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +103,7 @@
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;SHELLCHECK.PATH&quot;: &quot;/Users/default/Library/Application Support/Google/AndroidStudio2026.1.1/plugins/Shell Script/shellcheck&quot;,
     &quot;android.gradle.sync.needed&quot;: &quot;true&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,

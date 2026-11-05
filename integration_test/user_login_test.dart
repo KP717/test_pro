@@ -8,9 +8,6 @@ import 'package:test_pro/core/storage/preference_manager.dart';
 import 'package:test_pro/main.dart' as app;
 
 
-
-
-
 void main(){
 
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();

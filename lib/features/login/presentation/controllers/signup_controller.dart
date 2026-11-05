@@ -28,9 +28,9 @@ class SignupController {
 
 
   void onSignUpEvent()async{
-    SignupUsercase signupUsercase = SignupUsercase();
+    SignupUsercase signupUseCase = SignupUsercase();
 
-    final result = await signupUsercase.call({"email": emailController.text, "password":passwordController.text});
+    final result = await signupUseCase.call({"email": emailController.text, "password":passwordController.text});
 
     result.fold(
       (error){

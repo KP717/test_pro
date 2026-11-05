@@ -23,6 +23,7 @@ import 'package:test_pro/features/login/presentation/screen/login_screen.dart';
 import 'package:test_pro/features/profile/view/user_profile_screen.dart';
 import 'package:test_pro/core/routes/route_constant.dart';
 import 'package:test_pro/features/splash/presentation/screens/splash_screen.dart';
+import 'package:test_pro/features/video_stream/video_stream_screen.dart';
 import 'package:test_pro/testing/integration_test/integration_test_home.dart';
 
 class AppRoute {
@@ -59,6 +60,7 @@ class AppRoute {
         GoRoute(path: RouteConstant.tweenAnmationScreen, builder: (context, state)=> TweenAnimationScreen()),
         GoRoute(path: RouteConstant.transitionAnimationScreen, builder: (context, state)=> TransitionAnimationsScreen()),
         GoRoute(path: RouteConstant.graphQLScreen, builder: (context, state)=> GraphQLScreen()),
+        GoRoute(path: RouteConstant.videoStreamScreen, builder: (context, state)=> VideoStreamScreen()),
 
     ]
   );
